@@ -7,10 +7,10 @@ import sys
 import elasticsearch
 from elasticsearch.helpers import bulk
 
-ELASTIC_HOST = os.environ.get("INPUT_ELASTIC_HOST")
-ELASTIC_API_KEY_ID = os.environ.get("INPUT_ELASTIC_API_KEY_ID")
-ELASTIC_API_KEY = os.environ.get("INPUT_ELASTIC_API_KEY")
-ELASTIC_INDEX = os.environ.get("INPUT_ELASTIC_INDEX")
+ELASTIC_HOST = "http://localhost:9200"
+ELASTIC_API_KEY_ID = "NiXY8HkBfOP5JJVKlRoo"
+ELASTIC_API_KEY = "JGBMh572Rd-jKRgs_TiFwQ"
+ELASTIC_INDEX = "ci-cd"
 
 try:
     assert ELASTIC_HOST not in (None, '')
