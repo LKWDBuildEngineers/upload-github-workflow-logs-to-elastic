@@ -26,22 +26,16 @@ outputs:
 
 runs:
   using: "composite"
-  steps:
-    - run: |
-        echo "GITHUBREPO: $INPUT_GITHUB_REPOSITORY"
-        echo "GITHUBTOKEN: $INPUT_GITHUB_TOKEN"
-        echo "GITHUBORG: $INPUT_GITHUB_ORG"
-        echo "GITHUBRUNID: $INPUT_GITHUB_RUN_ID"
-      shell: bash
-      env:
-        INPUT_GITHUB_REPOSITORY: ${{ inputs.github_repository }}
-        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
-        INPUT_GITHUB_ORG: ${{ inputs.github_org }}
-        INPUT_GITHUB_RUN_ID: ${{ inputs.github_run_id }}
+  steps:      
     - run: |
        cd $GITHUB_ACTION_PATH && pip3 install -r requirements.txt
       shell: bash
     - run: |
        cd $GITHUB_ACTION_PATH && python3 main.py
       shell: bash
+      env:
+        INPUT_GITHUB_REPOSITORY: ${{ inputs.github_repository }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+        INPUT_GITHUB_ORG: ${{ inputs.github_org }}
+        INPUT_GITHUB_RUN_ID: ${{ inputs.github_run_id }}
 
