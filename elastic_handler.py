@@ -46,7 +46,7 @@ try:
     es = elasticsearch.Elasticsearch(
         [ELASTIC_HOST],
         api_key=(ELASTIC_API_KEY_ID, ELASTIC_API_KEY),
-        scheme="https"
+        scheme="http"
     )
 except elasticsearch.exceptions.AuthorizationException as exc:
     output = "Authentication to elastic failed"
