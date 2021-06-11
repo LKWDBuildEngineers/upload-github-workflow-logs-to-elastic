@@ -105,15 +105,10 @@ def main():
                 sys.exit(-1)
 
             logs = io.BytesIO(r.content)
-            print(r.content)
+          #  print(r.content)
             for log in logs:
-                elastic_logger.info(log.strip().decode(), extra={
-                    "job_id": job_id,
-                    "job_name": jobs.get(job_id).get('job_name'),
-                    "repo": github_repo,
-                    "run_id": github_run_id,
-                    **metadata
-                })
+                print(log)
+       
 
         except requests.exceptions.HTTPError as errh:
             output = "GITHUB API Http Error:" + str(errh)
