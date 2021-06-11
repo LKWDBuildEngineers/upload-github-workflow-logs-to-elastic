@@ -105,9 +105,10 @@ def main():
                 sys.exit(-1)
 
             logs = io.BytesIO(r.content)
-          #  print(r.content)
+            print(r)
             for log in logs:
-                print(log.strip().decode( "utf-8" ))
+                pass
+                #print(log.strip().decode( "utf-8" ))
        
 
         except requests.exceptions.HTTPError as errh:
