@@ -12,11 +12,6 @@ LOGGING_CONFIG = {
             'level': "DEBUG",
             'formatter': 'jsonFormatter',
             'class': 'logging.StreamHandler'
-        },
-        'elastic': {
-            'level': "DEBUG",
-            'formatter': 'jsonFormatter',
-            'class': 'elastic_handler.ElasticHandler'
         }
     },
     'loggers': {
@@ -24,11 +19,6 @@ LOGGING_CONFIG = {
             'handlers': ['default'],
             'level': "DEBUG",
             'propagate': True
-        },
-        'elastic': { # elastic logger
-            'handlers': ['elastic'],
-            'level': "DEBUG",
-            'propagate': False
         }
     },
     'formatters': {

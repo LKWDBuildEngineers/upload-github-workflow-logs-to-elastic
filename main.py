@@ -42,7 +42,7 @@ def main():
         output = "The input github org is not set"
         print(f"Error: {output}")
         sys.exit(-1)
-    elastic_logger = logging.getLogger("elastic")
+    elastic_logger = logging.getLogger("default")
     metadata_url = f"https://api.github.com/repos/{github_org}/{github_repo}/actions/runs/{github_run_id}"
     try:
         r = requests.get(metadata_url, stream=True, headers={
@@ -105,6 +105,7 @@ def main():
                 sys.exit(-1)
 
             logs = io.BytesIO(r.content)
+            print(r.content)
             for log in logs:
                 elastic_logger.info(log.strip().decode(), extra={
                     "job_id": job_id,
